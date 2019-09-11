@@ -18,7 +18,7 @@ def Prob_A(arr):
     """upside-down lena.bmp"""
     for i in range(int(length / 2)):
         for j in range(length):
-            arr[i][j], arr[511-i][j] = arr[511-i][j], arr[i][j]
+            arr[i][j], arr[length-1-i][j] = arr[length-1-i][j], arr[i][j]
     output = Image.fromarray(arr)
     output.save("prob_A.bmp")
 
@@ -27,7 +27,7 @@ def Prob_B(arr):
     """right-side-left lena.bmp"""
     for i in range(int(length / 2)):
         for j in range(length):
-            arr[j][i], arr[j][511 - i] = arr[j][511 - i], arr[j][i]
+            arr[j][i], arr[j][length-1-i] = arr[j][length-1-i], arr[j][i]
     output = Image.fromarray(arr)
     output.save("prob_B.bmp")
 
@@ -36,10 +36,10 @@ def Prob_C(arr):
     """diagonally mirrored lena.bmp"""
     for i in range(int(length / 2)):
         for j in range(length):
-            arr[j][i], arr[j][511 - i] = arr[j][511 - i], arr[j][i]
+            arr[j][i], arr[j][length-1-i] = arr[j][length-1-i], arr[j][i]
     for i in range(int(length / 2)):
         for j in range(length):
-            arr[i][j], arr[511-i][j] = arr[511-i][j], arr[i][j]
+            arr[i][j], arr[length-1-i][j] = arr[length-1-i][j], arr[i][j]
     output = Image.fromarray(arr)
     output.save("prob_C.bmp")
 
