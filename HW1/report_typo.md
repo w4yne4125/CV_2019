@@ -50,15 +50,12 @@ for i in range(int(length / 2)):
 
 - **Diagonally mirrored**
 
-Do vertical flip then do horizontal flip
+Line mirror of top-left to bottom-right.
 
 ```python
-for i in range(int(length / 2)):
-        for j in range(length):
-            arr[j][i], arr[j][length-1-i] = arr[j][length-1-i], arr[j][i]
-    for i in range(int(length / 2)):
-        for j in range(length):
-            arr[i][j], arr[length-1-i][j] = arr[length-1-i][j], arr[i][j]
+ for i in range(512):
+        for j in range(512):
+            new_arr[511-j][i] = arr[i][j]
 ```
 
 ![prob_C](/Users/loyolaaa/2019_fall/CV/HW1/prob_C.bmp)

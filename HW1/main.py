@@ -34,15 +34,21 @@ def Prob_B(arr):
 
 def Prob_C(arr):
     """diagonally mirrored lena.bmp"""
-    for i in range(int(length / 2)):
-        for j in range(length):
-            arr[j][i], arr[j][length-1-i] = arr[j][length-1-i], arr[j][i]
-    for i in range(int(length / 2)):
-        for j in range(length):
-            arr[i][j], arr[length-1-i][j] = arr[length-1-i][j], arr[i][j]
-    output = Image.fromarray(arr)
+    new_arr = np.zeros((512, 512))
+    for i in range(512):
+        for j in range(512):
+            new_arr[511-j][i] = arr[i][j]
+    output = Image.fromarray(new_arr)
+    output = output.convert("L")
     output.save("prob_C.bmp")
 
+    new_arr = np.zeros((512, 512))
+    for i in range(512):
+        for j in range(512):
+            new_arr[j][i] = arr[i][j]
+    output = Image.fromarray(new_arr)
+    output = output.convert("L")
+    output.save("prob_C2.bmp")
 
 def Prob_D(arr):
     """rotate lena.bmp 45 degrees clockwise"""
